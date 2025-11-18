@@ -4,3 +4,26 @@ expertMode = true
 
 [nix]
 channel = "stable-25_05"
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Compile Java"
+
+[[workflows.workflow]]
+name = "Compile Java"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "javac Movie.java Rental.java Customer.java && echo \"Compilation successful! All Java files compiled without errors.\""
+
+[workflows.workflow.metadata]
+outputType = "console"
