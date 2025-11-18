@@ -1,5 +1,7 @@
 # Aula Prática sobre Refactoring
 
+*inicio do exercicio
+
 **Prof. Marco Tulio Valente**
 
 Objetivo: colocar em prática os conceitos de refactoring aprendidos na sala de aula. Para isso, o aluno vai realizar alguns refactorings em um sistema hipotético, também usado nos capítulos iniciais do livro do Fowler, que é o livro clássico sobre o tema.
