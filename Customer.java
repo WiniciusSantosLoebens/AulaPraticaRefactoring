@@ -12,30 +12,27 @@ public class Customer {
    public void addRental(Rental arg) {
       _rentals.addElement(arg);
    }
-   
+
    public String getName (){
       return _name;
    }
-  
+
   public String statement() {
      double totalAmount = 0;
      int frequentRenterPoints = 0;
      Enumeration rentals = _rentals.elements();
      String result = "Rental Record for " + getName() + "\n";
-     while (rentals.hasMoreElements()) {
-        double thisAmount = 0;
-        Rental each = (Rental) rentals.nextElement();
-        
-        thisAmount = each.getCharge();
 
+     while (rentals.hasMoreElements()) {
+        Rental each = (Rental) rentals.nextElement();
         frequentRenterPoints ++;
         if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) &&
             each.getDaysRented() > 1) frequentRenterPoints ++;
 
         result += "\t" + each.getMovie().getTitle()+ "\t" +
-            String.valueOf(thisAmount) + "\n";
-        totalAmount += thisAmount;
-
+            String.valueOf(each.getCharge()) + "\n";
+     
+        totalAmount += each.getCharge();
      }
      result +=  "Amount owed is " + String.valueOf(totalAmount) + "\n";
      result += "You earned " + String.valueOf(frequentRenterPoints) +
@@ -43,4 +40,3 @@ public class Customer {
      return result;
    }
 }
-//teste
